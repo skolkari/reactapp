@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import JestMock from 'jest-mock';
+
+jest.mock('./App', () => {
+  
+})
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

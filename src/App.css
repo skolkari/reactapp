@@ -1,22 +1,159 @@
-.App {
+
+body {
+  font-family: "Gotham";
+}
+.responsive-table {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border: 3px solid #ddd;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
+.responsive-table thead {
+  visibility: hidden;
+  background: #fafafa;
+}
+@media screen and (min-width: 600px) {
+  .responsive-table thead {
+    visibility: visible;
+  }
+}
+.responsive-table tr {
+  border: 1px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  padding: 5px;
+  margin-bottom: 10px;
+  display: block;
+}
+@media screen and (min-width: 600px) {
+  .responsive-table tr {
+    display: table-row;
+    border-bottom-width: 1px;
+    margin-bottom: 0;
+  }
+  .responsive-table tr:nth-child(even) {
+    background: #fafafa;
+  }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.responsive-table tr:nth-child(even){background-color: #f2f2f2;}
+  
+.responsive-table tr:hover {background-color: #ddd;}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+.responsive-table th {
+  text-transform: uppercase;
+  font-size: 11px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.responsive-table td {
+  display: block;
+  text-align: right;
+  font-size: 13px;
+  border-bottom: 1px dotted #ddd;
+}
+.responsive-table td:last-child {
+  border-bottom: none;
+}
+@media screen and (min-width: 600px) {
+  .responsive-table td {
+    display: table-cell;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: none;
+  }
+}
+.responsive-table td:before {
+  content: attr(data-label);
+  float: left;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+@media screen and (min-width: 600px) {
+  .responsive-table td:before {
+    content: "";
+    display: none;
+  }
 }
 
-.App-link {
-  color: #09d3ac;
+/* The container */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: unset;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+  border-radius: 3px;
+  box-shadow: inset 0px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 4px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.warning-text {
+  color: red;
 }
